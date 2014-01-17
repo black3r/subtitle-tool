@@ -8,6 +8,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
+MainWindow::MainWindow(QString filename, QWidget *parent) : MainWindow(parent)
+{
+    this->subfilename = filename;
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;

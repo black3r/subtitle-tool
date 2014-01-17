@@ -13,9 +13,11 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    MainWindow(QString filename, QWidget *parent = 0);
     ~MainWindow();
 
 private:
+    QString subfilename;
     Ui::MainWindow *ui;
 };
 
