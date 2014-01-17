@@ -4,7 +4,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QTextCodec>
-#include <vector>
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -57,6 +57,8 @@ void MainWindow::reloadSubtitle() {
             }
         }
         subfile->close();
+    } else {
+        std::cerr << "File could not be opened!" << std::endl;
     }
     delete subfile;
 }

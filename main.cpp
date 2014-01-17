@@ -17,19 +17,19 @@ int main(int argc, char *argv[])
     if (argc != 2) {
         // NOTE: Currently I do not have a file picker ready. So I have to expect a file name in command line arguments.
         // TODO: Add function to start with no file open and open file with FilePicker
-        cout << "Wrong number of parameters. Read manual" << endl;
+        cerr << "Wrong number of parameters. Read manual" << endl;
         return WRONG_NUMBER_OF_PARAMETERS_ERROR;
     } else {
         QString filename(argv[1]);
         QFileInfo videoFile(filename);
         if (!videoFile.exists()) {
-            cout << "Targeted file does not exist! Read manual" << endl;
+            cerr << "Targeted file does not exist! Read manual" << endl;
             return NON_EXISTENT_FILE_ERROR;
         }
         QString basename = videoFile.baseName();
         QDir dir = videoFile.absoluteDir();
         if (!dir.exists()) {
-            cout << "You are in a non-existent directory! This should not happen" << endl;
+            cerr << "You are in a non-existent directory! This should not happen" << endl;
             return NON_EXISTENT_DIRECTORY_ERROR;
         }
         QDirIterator it(dir, QDirIterator::Subdirectories);
@@ -39,12 +39,12 @@ int main(int argc, char *argv[])
             QFileInfo subfile = it.fileInfo();
             if (subfile.exists() && subfile.suffix() == "srt") {
                 if (subfile.baseName().startsWith(basename,Qt::CaseInsensitive)) {
-                    subfilename = subfile.fileName();
+                    subfilename = subfile.filePath();
                 }
             }
         }
         if (subfilename == "") {
-            cout << "No correct subtitle file found! Exiting" << endl;
+            cerr << "No correct subtitle file found! Exiting" << endl;
             return NO_SUBTITLE_FILE_FOUND_ERROR;
         }
         QApplication a(argc, argv);
