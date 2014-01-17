@@ -48,6 +48,7 @@ void MainWindow::reloadSubtitle() {
                 ctr = 0;
                 SubtitleLine line(id_str, timestamps_str, subtitle_lines);
                 this->lines.push_back(line);
+                subtitle_lines.clear();
             }
             else {
                 if (ctr == 0) id_str = line;
@@ -56,9 +57,27 @@ void MainWindow::reloadSubtitle() {
                 ctr++;
             }
         }
+        if (ctr != 0) {
+            SubtitleLine line(id_str, timestamps_str, subtitle_lines);
+            this->lines.push_back(line);
+        }
         subfile->close();
     } else {
         std::cerr << "File could not be opened!" << std::endl;
+    }
+    delete subfile;
+}
+
+void MainWindow::saveSubtitle(QString filename) {
+    QFile* subfile = new QFile(filename);
+    if (subfile->open(QFile::WriteOnly)) {
+        QTextStream out(subfile);
+        // NOTE: Look above if you want to know why cp1250
+        out.setCodec(QTextCodec::codecForName("CP1250"));
+        for (SubtitleLine line : lines) {
+            out << line.getFormatted();
+        }
+        subfile->close();
     }
     delete subfile;
 }

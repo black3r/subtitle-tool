@@ -1,5 +1,6 @@
 #include "subtitleline.h"
 #include <QStringList>
+#include <QStringBuilder>
 
 SubtitleLine::SubtitleLine() {
 
@@ -31,4 +32,13 @@ QString SubtitleLine::start() {
 
 QString SubtitleLine::stop() {
     return SubtitleLine::toTimestamp(this->msecStop);
+}
+
+QString SubtitleLine::getFormatted() {
+    QString sb;
+    sb += id + "\n";
+    sb += this->start() + " --> " + this->stop() + "\n";
+    for (auto line : lines) sb += line + "\n";
+    sb += "\n";
+    return sb;
 }

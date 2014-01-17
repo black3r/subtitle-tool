@@ -16,6 +16,7 @@ public:
     // public methods
     QString start();
     QString stop();
+    QString getFormatted();
 
     // public static methods
     static int toMsecs(QString timestamp);

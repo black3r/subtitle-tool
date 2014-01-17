@@ -21,6 +21,7 @@ public:
     // public methods
     void loadSubtitle(QString filename);
     void reloadSubtitle();
+    void saveSubtitle(QString filename);
 
 private:
     // private attributes
