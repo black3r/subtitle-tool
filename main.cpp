@@ -15,17 +15,19 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     if (argc != 2) {
+        // NOTE: Currently I do not have a file picker ready. So I have to expect a file name in command line arguments.
+        // TODO: Add function to start with no file open and open file with FilePicker
         cout << "Wrong number of parameters. Read manual" << endl;
         return WRONG_NUMBER_OF_PARAMETERS_ERROR;
     } else {
-        QString* filename = new QString(argv[1]);
-        QFileInfo* videoFile = new QFileInfo(*filename);
-        if (!videoFile->exists()) {
+        QString filename(argv[1]);
+        QFileInfo videoFile(filename);
+        if (!videoFile.exists()) {
             cout << "Targeted file does not exist! Read manual" << endl;
             return NON_EXISTENT_FILE_ERROR;
         }
-        QString basename = videoFile->baseName();
-        QDir dir = videoFile->absoluteDir();
+        QString basename = videoFile.baseName();
+        QDir dir = videoFile.absoluteDir();
         if (!dir.exists()) {
             cout << "You are in a non-existent directory! This should not happen" << endl;
             return NON_EXISTENT_DIRECTORY_ERROR;

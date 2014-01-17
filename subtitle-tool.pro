@@ -8,13 +8,16 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = subtitle-timer
+TARGET = subtitle-tool
 TEMPLATE = app
+QMAKE_CXXFLAGS += -std=gnu++11
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    subtitleline.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    subtitleline.h
 
 FORMS    += mainwindow.ui
