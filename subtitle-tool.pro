@@ -16,10 +16,13 @@ QMAKE_CXXFLAGS += -std=gnu++11
 SOURCES += main.cpp\
         mainwindow.cpp \
     subtitleline.cpp \
-    subtitles.cpp
+    subtitles.cpp \
+    semiautomovedialog.cpp
 
 HEADERS  += mainwindow.h \
     subtitleline.h \
-    subtitles.h
+    subtitles.h \
+    semiautomovedialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    semiautomovedialog.ui

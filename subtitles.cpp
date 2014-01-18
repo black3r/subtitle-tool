@@ -75,3 +75,16 @@ void Subtitles::saveSubtitle(QString filename) {
 QString Subtitles::getSubPath() {
     return this->subpath;
 }
+
+QVector<SubtitleLine>* Subtitles::getLines() {
+    return &(this->lines);
+}
+
+SubtitleLine* Subtitles::getLineByText(QString text) {
+    for (SubtitleLine &line : lines) {
+        if (line.getOneLine() == text) {
+            return &line;
+        }
+    }
+    return NULL;
+}

@@ -42,3 +42,11 @@ QString SubtitleLine::getFormatted() {
     sb += "\n";
     return sb;
 }
+
+QString SubtitleLine::getOneLine() {
+    QString result = "";
+    for (QString line : lines) {
+        result += line + " ";
+    }
+    return result;
+}

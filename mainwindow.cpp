@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "semiautomovedialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -25,4 +26,11 @@ void MainWindow::openSubtitles(QString filepath) {
 void MainWindow::openSubtitles(Subtitles* subs) {
     this->subs = subs;
     this->ui->subPathLabel->setText(this->subs->getSubPath());
+}
+
+void MainWindow::on_semiAutoButton_clicked()
+{
+    SemiAutoMoveDialog* dialog = new SemiAutoMoveDialog(this->subs);
+    connect(dialog, SIGNAL(finished(int)), dialog, SLOT(deleteLater()));
+    dialog->exec();
 }

@@ -14,7 +14,6 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    // constructors & destructors
     explicit MainWindow(QWidget *parent = 0);
     MainWindow(QString filepath, QWidget *parent = 0);
     ~MainWindow();
@@ -22,8 +21,10 @@ public:
     void openSubtitles(Subtitles* subs);
     void openSubtitles(QString filepath);
 
+private slots:
+    void on_semiAutoButton_clicked();
+
 private:
-    // private attributes
     Ui::MainWindow *ui;
     Subtitles* subs;
 };

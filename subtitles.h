@@ -8,18 +8,17 @@
 class Subtitles
 {
 public:
-    // constructors and destructors
     Subtitles();
     Subtitles(QString filename);
 
-    // public methods
     void loadSubtitle(QString filename);
     void reloadSubtitle();
     void saveSubtitle(QString filename);
     QString getSubPath();
+    QVector<SubtitleLine>* getLines();
+    SubtitleLine* getLineByText(QString text);
 
 private:
-    // private attributes
     QVector<SubtitleLine> lines;
     QString subpath;
 };
