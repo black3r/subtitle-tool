@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "subtitleline.h"
+#include "subtitles.h"
 
 namespace Ui {
 class MainWindow;
@@ -15,19 +16,16 @@ class MainWindow : public QMainWindow
 public:
     // constructors & destructors
     explicit MainWindow(QWidget *parent = 0);
-    MainWindow(QString filename, QWidget *parent = 0);
+    MainWindow(QString filepath, QWidget *parent = 0);
     ~MainWindow();
 
-    // public methods
-    void loadSubtitle(QString filename);
-    void reloadSubtitle();
-    void saveSubtitle(QString filename);
+    void openSubtitles(Subtitles* subs);
+    void openSubtitles(QString filepath);
 
 private:
     // private attributes
-    QVector<SubtitleLine> lines;
-    QString subfilename;
     Ui::MainWindow *ui;
+    Subtitles* subs;
 };
 
 #endif // MAINWINDOW_H

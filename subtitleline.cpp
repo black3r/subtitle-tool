@@ -1,6 +1,6 @@
 #include "subtitleline.h"
 #include <QStringList>
-#include <QStringBuilder>
+#include <QTime>
 
 SubtitleLine::SubtitleLine() {
 

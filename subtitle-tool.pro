@@ -15,9 +15,11 @@ QMAKE_CXXFLAGS += -std=gnu++11
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    subtitleline.cpp
+    subtitleline.cpp \
+    subtitles.cpp
 
 HEADERS  += mainwindow.h \
-    subtitleline.h
+    subtitleline.h \
+    subtitles.h
 
 FORMS    += mainwindow.ui

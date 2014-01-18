@@ -2,7 +2,6 @@
 #define SUBTITLELINE_H
 
 #include <QString>
-#include <QTime>
 #include <QVector>
 
 class SubtitleLine
