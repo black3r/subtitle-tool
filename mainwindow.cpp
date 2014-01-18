@@ -34,3 +34,14 @@ void MainWindow::on_semiAutoButton_clicked()
     connect(dialog, SIGNAL(finished(int)), dialog, SLOT(deleteLater()));
     dialog->exec();
 }
+
+void MainWindow::on_saveQuitButton_clicked()
+{
+    this->subs->save();
+    this->close();
+}
+
+void MainWindow::on_actionSave_triggered()
+{
+    this->subs->save();
+}

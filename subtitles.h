@@ -11,9 +11,10 @@ public:
     Subtitles();
     Subtitles(QString filename);
 
-    void loadSubtitle(QString filename);
+    void load(QString filename);
     void reloadSubtitle();
-    void saveSubtitle(QString filename);
+    void save();
+    void saveAs(QString filename);
     QString getSubPath();
     QVector<SubtitleLine>* getLines();
     SubtitleLine* getLineByText(QString text);

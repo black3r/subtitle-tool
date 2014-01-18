@@ -87,6 +87,13 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="saveQuitButton">
+        <property name="text">
+         <string>Save and Exit</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
    </layout>

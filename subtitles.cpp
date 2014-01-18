@@ -10,10 +10,10 @@ Subtitles::Subtitles()
 }
 
 Subtitles::Subtitles(QString filename) {
-    this->loadSubtitle(filename);
+    this->load(filename);
 }
 
-void Subtitles::loadSubtitle(QString filename) {
+void Subtitles::load(QString filename) {
     this->subpath = filename;
     this->reloadSubtitle();
 }
@@ -58,7 +58,7 @@ void Subtitles::reloadSubtitle() {
     delete subfile;
 }
 
-void Subtitles::saveSubtitle(QString filename) {
+void Subtitles::saveAs(QString filename) {
     QFile* subfile = new QFile(filename);
     if (subfile->open(QFile::WriteOnly)) {
         QTextStream out(subfile);
@@ -70,6 +70,10 @@ void Subtitles::saveSubtitle(QString filename) {
         subfile->close();
     }
     delete subfile;
+}
+
+void Subtitles::save() {
+    saveAs(subpath);
 }
 
 QString Subtitles::getSubPath() {

@@ -24,6 +24,8 @@ public:
 private slots:
     void on_semiAutoButton_clicked();
 
+    void on_saveQuitButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Subtitles* subs;
