@@ -16,12 +16,12 @@ SubtitleLine::SubtitleLine(QString id, QString timestamps, QVector<QString> line
     this->msecStop = SubtitleLine::toMsecs(stamps[2]);
 }
 
-int SubtitleLine::toMsecs(QString timestamp) {
+long SubtitleLine::toMsecs(QString timestamp) {
     QTime time = QTime::fromString(timestamp, "hh:mm:ss,zzz");
     return time.msecsSinceStartOfDay();
 }
 
-QString SubtitleLine::toTimestamp(int msecs) {
+QString SubtitleLine::toTimestamp(long msecs) {
     QTime time = QTime::fromMSecsSinceStartOfDay(msecs);
     return time.toString("hh:mm:ss,zzz");
 }
@@ -49,4 +49,22 @@ QString SubtitleLine::getOneLine() {
         result += line + " ";
     }
     return result;
+}
+
+void SubtitleLine::move(int msecs) {
+    this->msecStart += msecs;
+    this->msecStop += msecs;
+}
+
+void SubtitleLine::stretch(int num, int den) {
+    this->msecStart = (this->msecStart * num) / den;
+    this->msecStop = (this->msecStop * num) / den;
+}
+
+long SubtitleLine::getMsecStart() {
+    return msecStart;
+}
+
+long SubtitleLine::getMsecStop() {
+    return msecStop;
 }

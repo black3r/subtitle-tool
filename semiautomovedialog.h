@@ -18,6 +18,9 @@ public:
     ~SemiAutoMoveDialog();
     int exec();
 
+public slots:
+    bool doMoveStretch();
+
 private:
     Ui::SemiAutoMoveDialog *ui;
     Subtitles *subs;
