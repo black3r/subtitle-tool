@@ -19,9 +19,10 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::openSubtitles(QString filepath) {
-    this->subs = new Subtitles(filepath);
+    this->openSubtitles(new Subtitles(filepath));
 }
 
 void MainWindow::openSubtitles(Subtitles* subs) {
     this->subs = subs;
+    this->ui->subPathLabel->setText(this->subs->getSubPath());
 }

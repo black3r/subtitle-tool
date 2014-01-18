@@ -14,12 +14,12 @@ Subtitles::Subtitles(QString filename) {
 }
 
 void Subtitles::loadSubtitle(QString filename) {
-    this->subfilename = filename;
+    this->subpath = filename;
     this->reloadSubtitle();
 }
 
 void Subtitles::reloadSubtitle() {
-    QFile* subfile = new QFile(subfilename);
+    QFile* subfile = new QFile(subpath);
     if (subfile->open(QFile::ReadOnly)) {
         QTextStream in(subfile);
         // NOTE: I expect input to be in CP-1250
@@ -70,4 +70,8 @@ void Subtitles::saveSubtitle(QString filename) {
         subfile->close();
     }
     delete subfile;
+}
+
+QString Subtitles::getSubPath() {
+    return this->subpath;
 }

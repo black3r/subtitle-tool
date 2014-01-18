@@ -16,11 +16,12 @@ public:
     void loadSubtitle(QString filename);
     void reloadSubtitle();
     void saveSubtitle(QString filename);
+    QString getSubPath();
 
 private:
     // private attributes
     QVector<SubtitleLine> lines;
-    QString subfilename;
+    QString subpath;
 };
 
 #endif // SUBTITLES_H
