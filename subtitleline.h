@@ -17,17 +17,17 @@ public:
     QString getOneLine();
     void move(int msecs);
     void stretch(int num, int den);
-    long getMsecStart();
-    long getMsecStop();
+    long long getMsecStart();
+    long long getMsecStop();
 
-    static long toMsecs(QString timestamp);
-    static QString toTimestamp(long msecs);
+    static long long toMsecs(QString timestamp);
+    static QString toTimestamp(long long msecs);
 
 private:
     QString id;
     QString timestamps;
-    long msecStart;
-    long msecStop;
+    long long msecStart;
+    long long msecStop;
     QVector<QString> lines;
 };
 
