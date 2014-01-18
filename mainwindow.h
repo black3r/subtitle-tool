@@ -23,8 +23,8 @@ public:
 
 private slots:
     void on_semiAutoButton_clicked();
-
     void on_saveQuitButton_clicked();
+    void on_actionSave_triggered();
 
 private:
     Ui::MainWindow *ui;
